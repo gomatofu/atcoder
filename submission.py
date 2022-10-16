@@ -68,6 +68,8 @@ for submissions in newestSubmits.values():
             path += ".cpp"
         elif "Python" in sub["language"]:
             path += ".py"
+        elif "PyPy" in sub["language"]:
+            path += ".py"
         
         # 既に提出コードがある場合は取得せず、次の問題の提出を探す
         if os.path.isfile(path): continue
