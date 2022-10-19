@@ -54,8 +54,11 @@ add_cnt = 0
 
 for submissions in newestSubmits.values():
     for sub in submissions:
-        # 問題番号の取得
-        problem_num = sub["problem_id"][-1]
+        # 問題番号の取得(競プロ典型90問対応)
+        if sub["contest_id"] == "typical90" and len(sub["problem_id"]) == 12:
+            problem_num = sub["problem_id"][-2:]
+        else:
+            problem_num = sub["problem_id"][-1]        
         
         # 古い問題の場合には数字になっているので、アルファベットに戻す
         if problem_num.isdigit():
