@@ -41,13 +41,13 @@ for contestName in newestSubmits:
 
 import re
 import html
-import chromedriver_binary
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from time import sleep
 from selenium.webdriver.common.by import By
 import subprocess
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 # 追加したファイルの数を増やす
 add_cnt = 0
