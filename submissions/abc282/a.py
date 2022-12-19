@@ -1,0 +1,4 @@
+S='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+K=int(input())
+
+print(S[0:K])
