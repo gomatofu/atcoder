@@ -15,4 +15,5 @@ elif C==1 or C==W:
 else:
     cnt+=2
 
+
 print(cnt)
