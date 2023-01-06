@@ -29,7 +29,8 @@ def collectNewestAcceptedSubmissions(submissions):
         result[sub["contest_id"]].append(sub)
     return result
 
-newestSubmits =  collectNewestAcceptedSubmissions(submissions)
+# 直近5問
+newestSubmits =  collectNewestAcceptedSubmissions(submissions[-6:-1])
 
 import os
 
@@ -75,7 +76,7 @@ for submissions in newestSubmits.values():
             path += ".py"
         
         # 既に提出コードがある場合は取得せず、次の問題の提出を探す
-        if os.path.isfile(path): continue
+        # if os.path.isfile(path): continue
         
         # 提出ページへアクセス
         sub_url = "https://atcoder.jp/contests/" + sub["contest_id"] + "/submissions/" + str(sub["id"])
