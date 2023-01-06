@@ -3,8 +3,8 @@ K=int(input())
 A=list(map(int,input().split()))
 
 def is_ok(mid):
-    tmp_val = 0 # Ø‚Á‚½—rã»‚Ì’·‚³
-    cut_cnt = 0 # —rã»‚ğØ‚é”
+    tmp_val = 0 
+    cut_cnt = 0 
     for i in range(N):
         if A[i] - tmp_val >= mid and L - A[i] >= mid:
             cut_cnt += 1
