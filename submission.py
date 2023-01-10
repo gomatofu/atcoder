@@ -30,7 +30,7 @@ def collectNewestAcceptedSubmissions(submissions):
     return result
 
 # 直近5問
-newestSubmits =  collectNewestAcceptedSubmissions(submissions[-6:-1])
+newestSubmits =  collectNewestAcceptedSubmissions(submissions[-6:])
 
 import os
 
