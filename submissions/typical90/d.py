@@ -1,26 +1,24 @@
-h,w=map(int, input().split())
-l=[[0 for _ in range(w)]for _ in range(h)]
-ans=[[0 for _ in range(w)]for _ in range(h)]
-row=[0]*h
-column=[0]*w
+H,W = map(int,input().split())
+A = [list(map(int,input().split())) for _ in range(H)]
 
-# 計算前取得
-for i in range(h):
-  a=list(map(int, input().split())) 
-  for j in range(w):
-    l[i][j]=a[j]
-    
-# 列、行合計値取得    
-for i in range(h):
-  for j in range(w):
-    row[i]+=l[i][j]
-    column[j]+=l[i][j]
-    
-# 答え計算代入
-for i in range(h):
-  for j in range(w):
-    ans[i][j]= row[i]+column[j]-l[i][j]
 
-# 出力
-for a in ans:
-  print(*a)
+rowSum=[]
+for i in range(H):
+    row=0
+    for j in range(W):
+        row+=A[i][j]
+    rowSum.append(row)
+
+clmSum=[]
+for i in range(W):
+    clm=0
+    for j in range(H):
+        clm+=A[j][i]
+    clmSum.append(clm)
+
+for i in range(H):
+    ans=[]
+    for j in range(W):
+        cal=rowSum[i]+clmSum[j]-A[i][j]
+        ans.append(cal)
+    print(*ans,sep=' ')
