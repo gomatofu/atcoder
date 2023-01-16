@@ -1,4 +1,3 @@
-
 import sys
 def II(): return int(sys.stdin.readline().rstrip())
 def LI(): return list(map(int,sys.stdin.readline().rstrip().split()))
