@@ -16,12 +16,13 @@ submissions = getSubmissionData(userID)
 # 各コンテストごとにまとめて返す
 def collectNewestAcceptedSubmissions(submissions):
     sortedData = sorted(submissions, key=lambda x: x['id'])  # IDで昇順ソートすると古い順になる
+    sortedData = sortedData[-6:]
     submits = {} # 各問題ごとに最新の提出に更新する
     for data in sortedData:
         if data["result"] != "AC": # ACだった提出だけ対象
             continue
         submits[data["problem_id"]] = data
-    
+        
     result = {} # コンテストごとにまとめる
     for sub in submits.values():
         if not sub["contest_id"] in result:
@@ -30,7 +31,7 @@ def collectNewestAcceptedSubmissions(submissions):
     return result
 
 # 直近5問
-newestSubmits =  collectNewestAcceptedSubmissions(submissions[-6:])
+newestSubmits = collectNewestAcceptedSubmissions(submissions)
 
 import os
 
