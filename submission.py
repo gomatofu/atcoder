@@ -98,6 +98,7 @@ for submissions in newestSubmits.values():
             line3 = html.unescape(line2)
             lines.append(line3 + "\n")
         code_text = ''.join(lines)
+        code_text.encode('cp932', "ignore")
             
         # 書き込み
         with open(path, 'w') as f:
