@@ -1,17 +1,22 @@
-N,X,Y=map(int,input().split())
-red=[0]*(N+1)
-blue=[0]*(N+1)
+def II(): return int(input())
+def MI(): return map(int,input().split())
+def LI(): return list(map(int,input().split()))
+def SS(): return input()
+def LS(): return list(input())
 
-red[N]=1
+N,X,Y=MI()
 
-for i in range(N,1,-1):
-  red[i-1]+=red[i]
-  blue[i]+=red[i]*X
-  red[i]=0
-  
-  red[i-1]+=blue[i]
-  blue[i-1]+=blue[i]*Y
-  blue[i]=0
-  
-print(blue[1])
+r=[0] *(N+1)
+b=[0] *(N+1)
+r[N]=1
 
+for n in range(N,1,-1):
+    r[n-1] += r[n]
+    b[n] += r[n] * X
+    r[n] = 0
+
+    r[n-1] += b[n]
+    b[n-1] += b[n] * Y
+    b[n] = 0
+
+print(b[1])
